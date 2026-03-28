@@ -1,6 +1,7 @@
 package com.example.productservices.services;
 
 import com.example.productservices.dtos.FakeStoreProductDto;
+import com.example.productservices.exceptions.ProductNotFoundException;
 import com.example.productservices.models.Category;
 import com.example.productservices.models.Product;
 import org.springframework.stereotype.Service;
@@ -36,12 +37,15 @@ public class FakeStoreProductService implements ProductService{
 
     @Override
     public Product getProductById(long productId){
-        //make a api call to FakeStore and get the product with the given id
+        //make an api call to FakeStore and get the product with the given id
         FakeStoreProductDto fakeStoreProductDto= restTemplate.getForObject(
                 "https://fakestoreapi.com/products/" + productId,
                 FakeStoreProductDto.class
         );
 
+        if(fakeStoreProductDto == null) {
+            throw new ProductNotFoundException("product with id " + productId + " doesn't exist.");
+        }
         //convert fakeStoreProductDto object into a Product object
 
         return convertFakeStoreProductDtoToProduct(fakeStoreProductDto);
