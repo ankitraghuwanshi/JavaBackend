@@ -23,7 +23,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public Product getProductById(@PathVariable("id") long id) throws ProductNotFoundException{
+    public Product getProductById(@PathVariable("id") Long id) throws ProductNotFoundException{
 
 //        ResponseEntity<Product> responseEntity=null;
 //

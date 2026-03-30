@@ -36,7 +36,7 @@ public class FakeStoreProductService implements ProductService{
     }
 
     @Override
-    public Product getProductById(long productId){
+    public Product getProductById(Long productId) throws ProductNotFoundException {
         //make an api call to FakeStore and get the product with the given id
         FakeStoreProductDto fakeStoreProductDto= restTemplate.getForObject(
                 "https://fakestoreapi.com/products/" + productId,
