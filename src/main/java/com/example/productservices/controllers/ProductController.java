@@ -24,25 +24,6 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public Product getProductById(@PathVariable("id") Long id) throws ProductNotFoundException{
-
-//        ResponseEntity<Product> responseEntity=null;
-//
-//        try{
-//            Product product= productService.getProductById(id);
-//            responseEntity=new ResponseEntity<>(
-//                    product,
-//                    HttpStatus.OK
-//            );
-//        }catch(ProductNotFoundException e){
-//            System.out.println(e.getMessage());
-//            responseEntity=new ResponseEntity<>(
-//                    (HttpHeaders) null,
-//                    HttpStatus.BAD_REQUEST
-//            );
-//        }
-//
-//        return responseEntity;
-
         return productService.getProductById(id);
     }
 
