@@ -19,11 +19,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findAll();
     //select * from products;
 
-    List<Product> findByTitleContains(String str);
+    //List<Product> findByTitleContains(String str);
     //select * from products where title like '%str%';
 
-    List<Product> findByCategory(Category category);
+    //List<Product> findByCategory(Category category);
 
-    List<Product> findByCategory_Id(Long productId);
+    //List<Product> findByCategory_Id(Long productId);
     //joins query
 }

@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service("selfProductService")
 //@Primary
@@ -22,7 +23,12 @@ public class SelfProductService implements ProductService{
     public Product getProductById(Long productId) throws ProductNotFoundException {
         //make a DB call to get a product with given id
         //select * from products where id = ? ;
-        return null;
+        Optional<Product> optionalProduct= productRepository.findById(productId);
+
+        if(optionalProduct.isEmpty()){
+            throw new ProductNotFoundException("product with " + productId + " doesn't exist");
+        }
+        return optionalProduct.get();
     }
 
     @Override
