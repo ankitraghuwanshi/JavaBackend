@@ -14,7 +14,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     Optional<Product> findById(Long productId);
     //select * from products where id = productId;
 
-
     @Override
     List<Product> findAll();
     //select * from products;
@@ -26,4 +25,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     //List<Product> findByCategory_Id(Long productId);
     //joins query
+
+    @Override
+    void deleteById(Long id);
 }

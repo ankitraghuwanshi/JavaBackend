@@ -35,7 +35,8 @@ public class ProductController {
 
     @PostMapping()
     public Product createProduct(@RequestBody Product product){
-        return null;
+
+        return productService.createProduct(product);
     }
 
     @PatchMapping("/{id}")
@@ -44,12 +45,14 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public Product replaceProduct(@PathVariable("id") long id ,@RequestBody Product product){
-        return null;
+    public Product replaceProduct(@PathVariable("id") long productId ,@RequestBody Product product) {
+        return productService.replaceProduct(productId, product);
+
     }
 
     @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable("id") long id){
+        productService.deleteProduct(id);
         return ;
     }
 
