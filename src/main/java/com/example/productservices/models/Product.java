@@ -8,12 +8,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity(name = "products")  //defaultName = product
+@Entity
+@Table(name = "products") //defaultName = product
 public class Product extends BaseModel {
     private String title;
     private double price;
     private String description;
     private String imageUrl;
+
     @ManyToOne
     private Category category;
 }
