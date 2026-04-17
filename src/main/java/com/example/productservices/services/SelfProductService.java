@@ -37,24 +37,24 @@ public class SelfProductService implements ProductService{
 
     @Override
     public List<Product> getAllProducts() {
-        return null;
+        return productRepository.findAll();
     }
 
     @Override
     public Product createProduct(Product product) {
-        Category category = product.getCategory();
+        //Category category = product.getCategory();
 
         //before saving the product in DB,
         //we should first check if category present in DB or not ,
         //if yes then good,
         //if no then first save category in DB, then save product
 
-        Optional<Category> optionalCategory = categoryRepository.findByName(category.getName());
-        if(optionalCategory.isEmpty()){
+        //Optional<Category> optionalCategory = categoryRepository.findByName(category.getName());
+        //if(optionalCategory.isEmpty()){
             //save category first
-            category=categoryRepository.save(category);
-        }
-        product.setCategory(category);
+            //category=categoryRepository.save(category);
+        //}
+        //product.setCategory(category);
 
         return productRepository.save(product);
     }

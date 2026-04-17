@@ -1,5 +1,6 @@
 package com.example.productservices.models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -16,6 +17,6 @@ public class Product extends BaseModel {
     private String description;
     private String imageUrl;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     private Category category;
 }
